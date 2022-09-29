@@ -45,6 +45,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     super.dispose();
   }
 
+  // get index of the list according to the time (first second => first element of the list, 10's second => second element...)
   String _getCountryOrder(int second) {
     int currIndex = 0;
 
