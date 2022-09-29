@@ -27,7 +27,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     // 'Chargement terminé !'
   ];
 
-  List<Widget> list = [];
+  List<Widget> weatherCountrylist = [];
   int index = 0;
   double percent = 0.0;
   late Timer timer;
@@ -77,15 +77,17 @@ class _WeatherScreenState extends State<WeatherScreen> {
     return map;
   }
 
+  // restart the loading
   void restart() {
     percent = 0;
     index = 0;
-    list = [];
+    weatherCountrylist = [];
     loading = true;
     setState(() {});
     timer = Timer.periodic(const Duration(seconds: 1), update);
   }
 
+  // update function for loading and APIs call
   void update(Timer currTime) {
     int second = currTime.tick;
     if (mounted) {
@@ -107,7 +109,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
         // . APPEL API
 
         if (second % 10 == 0 && second < 50 || second == 1) {
-          list.add(
+          weatherCountrylist.add(
             FutureBuilder<WeatherResponseWithError>(
               future: _getWeather(second),
               builder: (context, snapshot) {
@@ -189,7 +191,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     ),
               !loading
                   ? Column(
-                      children: list,
+                      children: weatherCountrylist,
                     )
                   : Container(),
             ],

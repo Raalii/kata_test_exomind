@@ -1,4 +1,4 @@
-// Weather complete model.
+// Weather complete model. i have used a website to get the model (with json response)
 class WeatherResponseWithError {
   final WeatherResponse? response;
   final String? error;

@@ -1,3 +1,4 @@
+// handle error
 class GeolocationWithError {
   final Geolocation? response;
   final String? error;
