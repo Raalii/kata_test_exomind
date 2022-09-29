@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 // define variable for api
 
-// ignore: constant_identifier_names
-const String APIKEYWEATHER = "516a5b490ae1b5915920928742ce0d1bs";
+// Can change the key if you want to test the error
+const String APIKEYWEATHER = "516a5b490ae1b5915920928742ce0d1b";
 
 const String _basePath = "https://api.openweathermap.org";
 

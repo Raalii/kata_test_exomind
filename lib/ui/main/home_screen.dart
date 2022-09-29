@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meteo/ui/styles/colors.dart';
 import 'package:meteo/ui/styles/text_style.dart';
 import 'package:meteo/ui/widget/basic/button.dart';
 
@@ -13,6 +14,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('L\'Application météo du moment !'),
+        backgroundColor: ColorsTheme.firstColor,
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

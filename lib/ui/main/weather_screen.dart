@@ -136,7 +136,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         'https://openweathermap.org/img/w/${snapshot.data!.response!.weather[0].icon}.png'),
                     Text('Ville : ${snapshot.data!.response!.name}'),
                     Text(
-                        'Température : ${(snapshot.data!.response!.main.temp - 275).toInt()}'),
+                        'Température : ${(snapshot.data!.response!.main.temp - 275).toInt()}°C'),
                   ],
                 );
               },
@@ -150,7 +150,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Météo du jour'),
+        centerTitle: true,
+        backgroundColor: ColorsTheme.firstColor,
+      ),
       body: Center(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -159,10 +163,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
             children: [
               !loading
                   ? Container()
-                  : Text(
-                      messages[index],
-                      textAlign: TextAlign.center,
-                      style: ThemeTextStyle.sectionTitle(fontSize: 20.0),
+                  : SizedBox(
+                      height: 75,
+                      child: Text(
+                        messages[index],
+                        textAlign: TextAlign.center,
+                        style: ThemeTextStyle.sectionTitle(fontSize: 20.0),
+                      ),
                     ),
               const SizedBox(
                 height: 50,
